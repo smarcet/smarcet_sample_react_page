@@ -1,8 +1,10 @@
 import React from 'react'
-import { Switch, Route, Router, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
+import {Switch, Route, Router, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 import T from 'i18n-react';
 import history from './history'
+import LandingPage from './pages/landing'
+import CheckoutPage from './pages/checkout'
 import URI from "urijs";
 
 // here is set by default user lang as en
@@ -24,46 +26,28 @@ T.setTexts(require(`./i18n/${language}.json`));
 class App extends React.PureComponent {
 
     render() {
-      return (<div className="container-fluid main-container">
-          <div className="row">
-              <div className="col-md-12">
-                  <div className="header">
-                      <a className="logo">
-                        <img alt="Firstleaf"/>
-                      </a>
-                      <button type="button" className="orange-button">get started</button>
-                  </div>
-              </div>
-          </div>
-          <div className="row your-results">
-              <div className="col-md-12">
-                  <div className="row">
-                      <div className="col-md-12">
-                          <h1 className="your-results-title">YOUR RESULTS</h1>
-                          <p>Based on your interest in <span className="orange-text ">a mix of red,
-                              white, American and international wines</span>,
-                              we think you’ll love the following selection.</p>
-                      </div>
-                  </div>
-                  <hr/>
-                  <div className="row">
-                      <div className="col-md-12">
-                          &nbsp;
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div className="row hero"></div>
-          <div className="row checkout"></div>
-          <div className="row footer"></div>
-      </div>);
+        return (<Router history={history}>
+            <div className="container-fluid main-container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="header">
+                            <a className="logo">
+                                <img alt="Firstleaf"/>
+                            </a>
+                            <button type="button" className="orange-button">get started</button>
+                        </div>
+                    </div>
+                </div>
+                <Switch>
+                    <Route path="/" strict exact component={LandingPage}/>
+                    <Route path="/checkout" strict exact component={CheckoutPage}/>
+                </Switch>
+                <div className="row footer"></div>
+            </div>
+        </Router>);
     }
 }
 
-const mapStateToProps = ({}) => ({
+const mapStateToProps = ({}) => ({});
 
-});
-
-export default connect(mapStateToProps, {
-
-})(App);
+export default connect(mapStateToProps, {})(App);
