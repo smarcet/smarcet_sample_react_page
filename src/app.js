@@ -1,11 +1,10 @@
 import React from 'react'
-import {Switch, Route, Router, Redirect} from 'react-router-dom'
+import {Switch, Route, Router} from 'react-router-dom'
 import {connect} from 'react-redux'
 import T from 'i18n-react';
 import history from './history'
 import LandingPage from './pages/landing'
 import CheckoutPage from './pages/checkout'
-import URI from "urijs";
 
 // here is set by default user lang as en
 let language = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;

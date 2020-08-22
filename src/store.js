@@ -12,7 +12,7 @@
  **/
 
 import { createStore, applyMiddleware, compose} from 'redux';
-
+import baseReducer from './reducers/base-reducer';
 import thunk from 'redux-thunk';
 import { persistStore, persistCombineReducers } from 'redux-persist'
 import storage from 'redux-persist/es/storage'
@@ -23,7 +23,7 @@ const config = {
 };
 
 const reducers = persistCombineReducers(config, {
-
+   baseState: baseReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -32,7 +32,6 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 const onRehydrateComplete = () => {
     // repopulate access token on global access variable
-
 };
 
 export const persistor = persistStore(store, null, onRehydrateComplete);
