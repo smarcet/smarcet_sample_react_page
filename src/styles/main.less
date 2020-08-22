@@ -1,0 +1,71 @@
+@import 'constants.less';
+@import 'fonts.less';
+
+
+.main-container {
+
+  .orange-button{
+    background-color:@Orange;
+    color: white;
+    border: 1px solid @Orange;
+    width: 100px;
+    height: 34px;
+    line-height: 33px;
+    font-size: 10px;
+    text-transform:uppercase;
+    float: right;
+  }
+
+  .header{
+    padding: 10px;
+    font-family : Apercu;
+    font-size : 41px;
+    color : #000000;
+
+    .logo{
+      width: 138px;
+      height: 29px;
+      float: left;
+
+      img{
+        width: 100%;
+        content: url("../images/logo.svg");
+        display: block;
+      }
+    }
+  }
+
+  .your-results{
+    margin-top: 10px;
+    background-color: @Gray;
+    text-align: center;
+
+    .your-results-title {
+      font-family : Apercu;
+      font-size : 20px;
+      @media (max-width: 480px) { font-size: 12px; }
+      color : #A1A1A1;
+    }
+
+
+
+    p{
+      font-family : Apercu;
+      font-size : 41px;
+      @media (max-width: 480px) { font-size: 22px; }
+      color : #000000;
+      .orange-text{
+          font-family : "ITC Caslon 224";
+          font-size : 41px;
+          @media (max-width: 480px) { font-size: 22px; }
+          color : #f26e55;
+        }
+    }
+
+    hr{
+      border-top: 1px solid #A1A1A1;
+      width: 25em;
+    }
+  }
+}
+
