@@ -1,8 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import ProductCarousel from "../components/product-carousel";
 
 class LandingPage extends React.Component {
 
     render() {
+
         return (
             <React.Fragment>
             <div className="row your-results">
@@ -10,15 +13,15 @@ class LandingPage extends React.Component {
                     <div className="row">
                         <div className="col-md-12">
                             <h1 className="your-results-title">YOUR RESULTS</h1>
-                            <p>Based on your interest in <span className="orange-text ">a mix of red,
+                            <p className="your-results-text">Based on your interest in <span className="orange-text ">a mix of red,
                               white, American and international wines</span>,
                                 we think you’ll love the following selection.</p>
                         </div>
                     </div>
-                    <hr/>
+                    <hr className="your-results-text-hr"/>
                     <div className="row">
                         <div className="col-md-12">
-                            &nbsp;
+                            <ProductCarousel products={this.props.user_wines}/>
                         </div>
                     </div>
                 </div>
@@ -30,4 +33,15 @@ class LandingPage extends React.Component {
     }
 }
 
-export default LandingPage;
+
+const mapStateToProps = ({ baseState }) => ({
+    ...baseState
+});
+
+export default connect(
+    mapStateToProps,
+    {
+
+    }
+)(LandingPage);
+
