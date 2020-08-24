@@ -2,7 +2,7 @@
 @import 'fonts.less';
 
 .basic-hr {
-  border-top: 1px solid #A1A1A1;
+  border-top: 1px solid @SilverGray;
   width: 25em;
 }
 
@@ -21,7 +21,7 @@
 
 .call-2-action{
   font-size: 14.4px;
-  color: #fff;
+  color: @White;
   letter-spacing: .08px;
   width: 195px;
   height: 43px;
@@ -43,13 +43,13 @@
 
 .hero-col{
 
-  color : #FFFFFF;
-  background-color: #413746;
+  color : @White;
+  background-color: @Purple;
 
   .header {
     font-family : Apercu !important;
     font-size : 40px !important;
-    color : #ffffff !important;
+    color : @White !important;
     text-align: center !important;
     @media (min-device-width: 320px) and (max-device-width: 480px) {
       font-size: 20px !important;
@@ -60,7 +60,7 @@
     font-family : Apercu;
     font-weight : bold;
     font-size : 87px;
-    color : #FFFFFF;
+    color : @White;
     @media (min-device-width: 320px) and (max-device-width: 480px) {
       font-size: 40px;
     }
@@ -71,7 +71,7 @@
   }
 
   .vertical {
-    border-left: 1px solid #FFFFFF;
+    border-left: 1px solid @White;
     height: 125px;
     position:absolute;
     left: 50%;
@@ -96,7 +96,7 @@
   .retail-price{
     font-family : Apercu;
     font-size : 17px;
-    color : #FFFFFF;
+    color : @White;
     text-align: center;
     padding-top: 25px;
 
@@ -145,7 +145,7 @@
   @media (max-width: 480px) {
     font-size: 22px;
   }
-  color: #000000;
+  color: @Black;
 }
 
 .main-container {
@@ -166,7 +166,7 @@
     padding: 10px;
     font-family: Apercu;
     font-size: 41px;
-    color: #000000;
+    color: @Black;
   }
 
   .your-results {
@@ -188,7 +188,7 @@
       @media (max-width: 480px) {
         font-size: 12px;
       }
-      color: #A1A1A1;
+      color: @SilverGray;
     }
 
     .orange-text {
@@ -239,7 +239,6 @@
 
     .help-text{
       color: @Orange;
-
     }
   }
 
@@ -253,6 +252,15 @@
     }
     a {
       color : #C3C4C1 !important;
+    }
+  }
+}
+
+.email-modal{
+  .input-container{
+    text-align: center;
+    input{
+      width: 100%;
     }
   }
 }
