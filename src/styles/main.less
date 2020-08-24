@@ -1,69 +1,258 @@
 @import 'constants.less';
 @import 'fonts.less';
 
+.basic-hr {
+  border-top: 1px solid #A1A1A1;
+  width: 25em;
+}
+
+.checkout
+{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: @Gray;
+  .help{
+    text-align: center;
+    .help-link{
+      color: @Orange;
+    }
+  }
+}
+
+.call-2-action{
+  font-size: 14.4px;
+  color: #fff;
+  letter-spacing: .08px;
+  width: 195px;
+  height: 43px;
+  background: @Orange;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.hero{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  .container{
+
+  }
+}
+
+.hero-col{
+
+  color : #FFFFFF;
+  background-color: #413746;
+
+  .header {
+    font-family : Apercu !important;
+    font-size : 40px !important;
+    color : #ffffff !important;
+    text-align: center !important;
+    @media (min-device-width: 320px) and (max-device-width: 480px) {
+      font-size: 20px !important;
+    }
+  }
+
+  .price {
+    font-family : Apercu;
+    font-weight : bold;
+    font-size : 87px;
+    color : #FFFFFF;
+    @media (min-device-width: 320px) and (max-device-width: 480px) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 480px) and (max-device-width: 992px) {
+      font-size: 55px;
+    }
+  }
+
+  .vertical {
+    border-left: 1px solid #FFFFFF;
+    height: 125px;
+    position:absolute;
+    left: 50%;
+    display: inline;
+    @media (max-width: 480px) {
+      height: 70px;
+    }
+
+    @media (max-width: 991px) {
+      height: 80px;
+    }
+  }
+
+  .taxes{
+    font-family : Apercu;
+    font-size : 27px;
+    @media (max-width: 480px) {
+      font-size: 17px;
+    }
+  }
+
+  .retail-price{
+    font-family : Apercu;
+    font-size : 17px;
+    color : #FFFFFF;
+    text-align: center;
+    padding-top: 25px;
+
+  }
+
+  .retail-price-hr{
+    width: 50%;
+  }
+
+  .money-back{
+    text-align: center;
+  }
+
+}
+
+.basic-text-row {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.flex-center{
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 138px;
+  height: 29px;
+  float: left;
+
+  img {
+    width: 100%;
+    content: url("../images/logo.svg");
+    display: block;
+  }
+}
+
+.basic-text {
+  font-family: Apercu;
+  font-size: 41px;
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
+  color: #000000;
+}
 
 .main-container {
 
-  .orange-button{
-    background-color:@Orange;
+  .orange-button {
+    background-color: @Orange;
     color: white;
     border: 1px solid @Orange;
     width: 100px;
     height: 34px;
     line-height: 33px;
     font-size: 10px;
-    text-transform:uppercase;
+    text-transform: uppercase;
     float: right;
   }
 
-  .header{
+  .header {
     padding: 10px;
-    font-family : Apercu;
-    font-size : 41px;
-    color : #000000;
-
-    .logo{
-      width: 138px;
-      height: 29px;
-      float: left;
-
-      img{
-        width: 100%;
-        content: url("../images/logo.svg");
-        display: block;
-      }
-    }
+    font-family: Apercu;
+    font-size: 41px;
+    color: #000000;
   }
 
-  .your-results{
+  .your-results {
     margin-top: 10px;
     background-color: @Gray;
     text-align: center;
 
+    padding-left: 20%;
+    padding-right: 20%;
+
+    @media (max-width: 480px) {
+      padding-left: 0;
+      padding-right: 0
+    }
+
     .your-results-title {
-      font-family : Apercu;
-      font-size : 20px;
-      @media (max-width: 480px) { font-size: 12px; }
-      color : #A1A1A1;
+      font-family: Apercu;
+      font-size: 20px;
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
+      color: #A1A1A1;
     }
 
-    .your-results-text {
-      font-family : Apercu;
-      font-size : 41px;
-      @media (max-width: 480px) { font-size: 22px; }
-      color : #000000;
-      .orange-text{
-          font-family : "ITC Caslon 224";
-          font-size : 41px;
-          @media (max-width: 480px) { font-size: 22px; }
-          color : #f26e55;
-        }
-    }
-
-    .your-results-text-hr{
-      border-top: 1px solid #A1A1A1;
-      width: 25em;
+    .orange-text {
+      font-family: "ITC Caslon 224";
+      font-size: 41px;
+      @media (max-width: 480px) {
+        font-size: 22px;
+      }
+      color: @Orange;
     }
   }
 }
 
+.product_img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.footer
+{
+  background: #4a3e4f;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 25px;
+
+  .col-menu{
+    padding-left: 0px;
+  }
+
+  .grapes {
+    width: 20%;
+    content: url("../images/firstleaf-icon-300x300.png");
+    display: block;
+    @media (max-width: 991px) {
+      width: 5%;
+    }
+  }
+
+  .col-help{
+
+    font-family : Apercu;
+    font-size : 27px;
+
+    @media (max-width: 991px) {
+      padding-top: 5%;
+      font-size : 20px;
+    }
+
+    .help-text{
+      color: @Orange;
+
+    }
+  }
+
+  .row-menu{
+    padding-top: 4%;
+    color : #C3C4C1 !important;
+    font-family : Apercu;
+    font-size : 13px;
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+    a {
+      color : #C3C4C1 !important;
+    }
+  }
+}

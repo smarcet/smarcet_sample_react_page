@@ -1,3 +1,5 @@
+import {PRODUCT_CHANGED} from '../actions/product-actions';
+
 const WINE_REPOSITORY = {
     wines: [
         {
@@ -38,14 +40,23 @@ const WINE_REPOSITORY = {
 
 const DEFAULT_STATE = {
     user_email: null,
-    user_wines : [WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0]]
+    user_wines : [WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0]],
+    repository: WINE_REPOSITORY
 };
-
 
 const baseReducer = (state = DEFAULT_STATE, action) => {
     const { type, payload } = action;
 
     switch(type){
+        case PRODUCT_CHANGED:{
+            return {...state, user_wines: state.user_wines.map((wine, index) => {
+                    if (index !== payload.slot) {
+                        return wine;
+                    }
+                    return {...state.repository.wines[payload.newIndex]};
+                })};
+        }
+        break;
         default:
             return state;
             break;

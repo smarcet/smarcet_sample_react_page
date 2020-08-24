@@ -7,6 +7,7 @@ import store, {persistor} from './store';
 import { PersistGate } from 'redux-persist/es/integration/react'
 import 'sweetalert2/dist/sweetalert2.css';
 import './styles/main.less';
+import './styles/animations.less';
 
 const onBeforeLift = () => {
   console.log("reading state ...")

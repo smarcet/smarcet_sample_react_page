@@ -1,12 +1,15 @@
 @import 'constants.less';
 @import 'fonts.less';
 
+.product_info_container_item{
+  position: relative;
+}
+
 .product_info_container{
   padding-bottom: 20px;
 }
 
 .product_info_row{
-
   text-align: left;
 }
 
@@ -14,12 +17,21 @@
   padding-bottom: 15px;
 }
 
+.col_right{
+  text-align:right;
+  @media (max-width: 480px) {text-align:left; }
+}
+
 .swap_button{
+
   img {
     content: url("../images/swap-button.png");
     display: inline;
     width: 25px;
     height: 25px;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   font-family : Apercu;
@@ -27,6 +39,10 @@
   color : #413746;
   border:1px solid #d6d6d6;
   padding: 5px;
+  width: 52%;
+  text-align: left;
+  vertical-align: center;
+  @media (max-width: 480px) {width: 100%;}
 }
 
 .product_name{
@@ -37,6 +53,9 @@
   text-align: left;
   margin: 0;
   padding: 0;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 31px;
+  }
 }
 
 .title_overflow{
@@ -52,13 +71,18 @@
   font-weight : bold;
   font-size : 24px;
   color : #000000;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 19px;
+  }
 }
 
 .list_non_bold {
-
   font-family : Apercu;
   font-size : 24px;
   color : #413746;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 19px;
+  }
 }
 
 .retail_price, .club_price
@@ -67,11 +91,16 @@
   font-size : 24px;
   color : #C0C0C0;
   text-decoration: line-through;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 19px;
+  }
 }
 
-.intro_price{
-
+.intro_price {
   font-family : Apercu;
   font-size : 24px;
   color : @Orange;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 19px;
+  }
 }

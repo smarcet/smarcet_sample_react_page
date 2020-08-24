@@ -14,18 +14,18 @@ class ProductInfo extends React.Component {
     }
 
     onSwapProduct(ev){
-        this.props.onSwapProduct(ev, this.props.product);
+        this.props.onSwapProduct(ev, this.props.slot, this.props.product);
     }
 
     render(){
         let {product} = this.props;
         return(
-            <li>
+            <li className={style.product_info_container_item}>
                 <div className={style.product_info_container}>
-                    <p className={style.product_name}>{product.name}</p>
+                    <p className={style.product_name}>{product.title}</p>
                     <hr className={style.title_overflow}/>
                     <div className={`row ${style.product_info_row}`}>
-                        <div className="col-md-6 col-xs-12">
+                        <div className="col-md-6 col-xs-12 col-left">
                             <div className={`row ${style.product_info_row_item}`}>
                                 <div className="col-md-12 col-xs-12">
                                     <span className={style.list_bold}>Region:&nbsp;</span><span className={style.list_non_bold}>{product.origin}</span>
@@ -42,7 +42,7 @@ class ProductInfo extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6 col-xs-12">
+                        <div className={`col-md-6 col-xs-12 ${style.col_right}`}>
                             <div className={`row ${style.product_info_row_item}`}>
                                 <div className="col-md-12 col-xs-12">
                                     <span className={style.list_bold}>Retail Price:&nbsp;</span><span className={style.retail_price}>{this.formatPrice(product.price)}</span>
