@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ProductCarousel from "../components/product-carousel";
-import {nextProduct, doCheckout, clearCheckout} from '../actions/product-actions';
+import {nextProduct, doCheckout, reloadSelection, resetSelection} from '../actions/product-actions';
 import Popup from "reactjs-popup";
 import {validateEmail} from '../utils/validators';
 
@@ -27,12 +27,25 @@ class LandingPage extends React.Component {
         this.props.nextProduct(currentSlot, currentProduct);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot){
-        let { history, do_checkout}  = this.props;
-        if(do_checkout) {
-            this.props.clearCheckout();
-            history.push('/checkout');
+    componentWillMount() {
+        console.log('componentDidUpdate');
+    }
+
+    componentDidUpdate(){
+        console.log('componentDidUpdate');
+        let { reloadSelection} = this.props;
+
+        //resetSelection();
+        window.onpopstate = e => {
+           // back button pressed
+           // restore checkout state to wine selector
+            console.log('componentDidUpdate::reload state');
+           reloadSelection();
         }
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
     }
 
     getTotalPrice() {
@@ -61,9 +74,11 @@ class LandingPage extends React.Component {
 
     onDoCheckout(ev){
         ev.preventDefault();
+        let { history}  = this.props;
         let {errors, email} = this.state;
         if(errors.hasOwnProperty('email')) return false;
         this.props.doCheckout(email);
+        history.push('/checkout');
         return false;
     }
 
@@ -188,7 +203,7 @@ const mapStateToProps = ({baseState}) => ({
 export default connect(
     mapStateToProps,
     {
-        nextProduct, doCheckout, clearCheckout
+        nextProduct, doCheckout, reloadSelection, resetSelection
     }
 )(LandingPage);
 

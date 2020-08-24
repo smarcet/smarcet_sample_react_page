@@ -1,7 +1,8 @@
 
 export const PRODUCT_CHANGED = 'PRODUCT_CHANGED';
 export const DO_CHECKOUT = 'DO_CHECKOUT';
-export const CLEAR_CHECKOUT = 'CLEAR_USER_INFO';
+export const RELOAD_CHECKOUT_STATE = 'RELOAD_CHECKOUT_STATE';
+export const RESET_SELECTION = 'RESET_SELECTION';
 
 export const createAction = type => payload => ({
     type,
@@ -25,6 +26,10 @@ export const doCheckout = (email) => (dispatch, getState) => {
     dispatch(createAction(DO_CHECKOUT)({ email: email}));
 }
 
-export const clearCheckout = () =>  (dispatch, getState) => {
-    dispatch(createAction(CLEAR_CHECKOUT)());
+export const reloadSelection = () =>  (dispatch, getState) => {
+    dispatch(createAction(RELOAD_CHECKOUT_STATE)());
+}
+
+export const resetSelection= () =>  (dispatch, getState) => {
+    dispatch(createAction(RESET_SELECTION)());
 }

@@ -1,4 +1,4 @@
-import {DO_CHECKOUT, PRODUCT_CHANGED, CLEAR_CHECKOUT   } from '../actions/product-actions';
+import {DO_CHECKOUT, PRODUCT_CHANGED, RELOAD_CHECKOUT_STATE, RESET_SELECTION} from '../actions/product-actions';
 
 const WINE_REPOSITORY = {
     wines: [
@@ -41,8 +41,8 @@ const WINE_REPOSITORY = {
 const DEFAULT_STATE = {
     user_email: null,
     user_wines: [WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0]],
+    checkout_wines: [],
     repository: WINE_REPOSITORY,
-    do_checkout: false,
 };
 
 const baseReducer = (state = DEFAULT_STATE, action) => {
@@ -50,6 +50,7 @@ const baseReducer = (state = DEFAULT_STATE, action) => {
 
     switch (type) {
         case PRODUCT_CHANGED: {
+            // change the user product selection using new index
             return {
                 ...state, user_wines: state.user_wines.map((wine, index) => {
                     if (index !== payload.slot) {
@@ -60,12 +61,26 @@ const baseReducer = (state = DEFAULT_STATE, action) => {
             };
         }
             break;
+        case RESET_SELECTION:{
+            return {...state,
+                // reset selection state
+                user_wines: [WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0]],
+            };
+        }
         case DO_CHECKOUT: {
-            return {...state, user_email: payload.email, do_checkout:true};
+            return {...state,
+                user_email: payload.email,
+                checkout_wines: [...state.user_wines],
+                // reset selection state
+                user_wines: [WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0], WINE_REPOSITORY.wines[0]],
+            };
         }
             break;
-        case CLEAR_CHECKOUT: {
-            return {...state, do_checkout: false};
+        case RELOAD_CHECKOUT_STATE: {
+            return {...state,
+                user_wines: [...state.checkout_wines],
+                checkout_wines: [],
+            };
         }
             break;
         default:
