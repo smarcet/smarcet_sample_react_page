@@ -54,15 +54,13 @@ class LandingPage extends React.Component {
     }
 
     openModal(ev) {
-        ev.stopPropagation();
-        ev.nativeEvent.stopImmediatePropagation();
+        ev.preventDefault();
         this.setState({ openModal: true });
         return false;
     }
 
     onDoCheckout(ev){
-        ev.stopPropagation();
-        ev.nativeEvent.stopImmediatePropagation();
+        ev.preventDefault();
         let {errors, email} = this.state;
         if(errors.hasOwnProperty('email')) return false;
         this.props.doCheckout(email);
