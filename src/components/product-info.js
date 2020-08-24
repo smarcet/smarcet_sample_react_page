@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../styles/product-info.module.less";
+import LongText from "./long-text";
 
 class ProductInfo extends React.Component {
 
@@ -31,14 +32,17 @@ class ProductInfo extends React.Component {
                                     <span className={style.list_bold}>Region:&nbsp;</span><span className={style.list_non_bold}>{product.origin}</span>
                                 </div>
                             </div>
+                            {product.awards &&
                             <div className={`row ${style.product_info_row_item}`}>
                                 <div className="col-md-12 col-xs-12">
-                                    <span className={style.list_bold}>Awards:&nbsp;</span><span className={style.list_non_bold}>{product.awards}</span>
+                                    <span className={style.list_bold}>Awards:&nbsp;</span><span
+                                    className={style.list_non_bold}><LongText value={product.awards} maxSize={50} /></span>
                                 </div>
                             </div>
+                            }
                             <div className={`row ${style.product_info_row_item}`}>
                                 <div className="col-md-12 col-xs-12">
-                                    <span className={style.list_bold}>Wine Notes:&nbsp;</span><span className={style.list_non_bold}>{product.tag_line}</span>
+                                    <span className={style.list_bold}>Wine Notes:&nbsp;</span><span className={style.list_non_bold}><LongText value={product.tag_line} maxSize={50} /></span>
                                 </div>
                             </div>
                         </div>

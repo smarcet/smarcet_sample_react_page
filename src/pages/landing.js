@@ -4,6 +4,7 @@ import ProductCarousel from "../components/product-carousel";
 import {nextProduct, doCheckout, reloadSelection, resetSelection} from '../actions/product-actions';
 import Popup from "reactjs-popup";
 import {validateEmail} from '../utils/validators';
+import '../styles/landing.less';
 
 class LandingPage extends React.Component {
 
@@ -180,10 +181,13 @@ class LandingPage extends React.Component {
                         </a>
                         <p>Please enter your email</p>
                         <div className="row">
-                            <div className="col-md-12 col-xs-12">
+                            <div className="col-md-12 col-xs-12 col-input">
                                 <input placeholder="Email Address" autoComplete="email"
                                        type="email"
-                                       id="email" name="email" className="form-control"
+                                       id="email"
+                                       name="email"
+                                       className="form-control"
+                                       value={this.state.email}
                                        onChange={this.onChange}
                                 />
                                 {this.hasErrors('email') !== '' &&

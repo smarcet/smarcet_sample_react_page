@@ -5,10 +5,12 @@ import T from 'i18n-react';
 import history from './history'
 import LandingPage from './pages/landing'
 import CheckoutPage from './pages/checkout'
+
 import wine1_desktop from './images/wine1_desktop.png';
 import wine1_mobile from './images/wine1_mobile.png';
 import wine2_desktop from './images/wine2_desktop.png';
 import wine2_mobile from './images/wine2_mobile.png';
+import fav_icon from './images/icon-48x48.png';
 
 import { useMediaQuery } from 'react-responsive'
 

@@ -19,7 +19,7 @@
   }
 }
 
-.call-2-action{
+.call-2-action {
   font-size: 14.4px;
   color: @White;
   letter-spacing: .08px;
@@ -32,6 +32,13 @@
   margin-bottom: 1em;
   text-align: center;
 }
+
+.call-2-action:hover{
+  color: @White;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 .hero{
   padding-top: 25px;
@@ -146,60 +153,6 @@
     font-size: 22px;
   }
   color: @Black;
-}
-
-.main-container {
-
-  .orange-button {
-    background-color: @Orange;
-    color: white;
-    border: 1px solid @Orange;
-    width: 100px;
-    height: 34px;
-    line-height: 33px;
-    font-size: 10px;
-    text-transform: uppercase;
-    float: right;
-  }
-
-  .header {
-    padding: 10px;
-    font-family: Apercu;
-    font-size: 41px;
-    color: @Black;
-  }
-
-  .your-results {
-    margin-top: 10px;
-    background-color: @Gray;
-    text-align: center;
-
-    padding-left: 20%;
-    padding-right: 20%;
-
-    @media (max-width: 480px) {
-      padding-left: 0;
-      padding-right: 0
-    }
-
-    .your-results-title {
-      font-family: Apercu;
-      font-size: 20px;
-      @media (max-width: 480px) {
-        font-size: 12px;
-      }
-      color: @SilverGray;
-    }
-
-    .orange-text {
-      font-family: "ITC Caslon 224";
-      font-size: 41px;
-      @media (max-width: 480px) {
-        font-size: 22px;
-      }
-      color: @Orange;
-    }
-  }
 }
 
 .product_img {

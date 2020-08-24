@@ -1,0 +1,61 @@
+@import 'constants.less';
+@import 'fonts.less';
+
+.main-container {
+
+  .orange-button {
+    background-color: @Orange;
+    color: white;
+    border: 1px solid @Orange;
+    width: 100px;
+    height: 34px;
+    line-height: 33px;
+    font-size: 10px;
+    text-transform: uppercase;
+    float: right;
+  }
+
+  .header {
+    padding: 10px;
+    font-family: Apercu;
+    font-size: 41px;
+    color: @Black;
+  }
+
+  .your-results {
+    margin-top: 10px;
+    background-color: @Gray;
+    text-align: center;
+
+    padding-left: 20%;
+    padding-right: 20%;
+
+    @media (max-width: 480px) {
+      padding-left: 0;
+      padding-right: 0
+    }
+
+    .your-results-title {
+      font-family: Apercu;
+      font-size: 20px;
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
+      color: @SilverGray;
+    }
+
+    .orange-text {
+      font-family: "ITC Caslon 224";
+      font-size: 41px;
+      @media (max-width: 480px) {
+        font-size: 22px;
+      }
+      color: @Orange;
+    }
+  }
+
+  .col-input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

@@ -12,7 +12,7 @@ class CheckoutPage extends React.Component {
                 <div className="row checkout-results">
                     <h1 className="your-checkout-title">CHECKOUT</h1>
                     <p>
-                        Dear {user_email}, here is your selection
+                        Dear <b>{user_email}</b>, here is your selection
                     </p>
                     <ul>
                     {
