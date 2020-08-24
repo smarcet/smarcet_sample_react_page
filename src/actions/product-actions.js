@@ -1,5 +1,7 @@
 
 export const PRODUCT_CHANGED = 'PRODUCT_CHANGED';
+export const DO_CHECKOUT = 'DO_CHECKOUT';
+export const CLEAR_CHECKOUT = 'CLEAR_USER_INFO';
 
 export const createAction = type => payload => ({
     type,
@@ -18,3 +20,11 @@ export const nextProduct = (currentSlot) => (dispatch, getState) => {
 
     dispatch(createAction(PRODUCT_CHANGED)({ slot:currentSlot, newIndex: currentIndex}));
 };
+
+export const doCheckout = (email) => (dispatch, getState) => {
+    dispatch(createAction(DO_CHECKOUT)({ email: email}));
+}
+
+export const clearCheckout = () =>  (dispatch, getState) => {
+    dispatch(createAction(CLEAR_CHECKOUT)());
+}
