@@ -1,0 +1,39 @@
+@import 'constants.less';
+@import 'fonts.less';
+
+.checkout-results{
+  margin-top: 10px;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+
+  font-family: Apercu;
+  font-size: 20px;
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+  color: @Black;
+
+  .your-checkout-title {
+    font-family: Apercu;
+    font-size: 20px;
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+    color: @SilverGray;
+  }
+  ul{
+    list-style: none;
+    li {
+      padding: 25px;
+      .product-thumb {
+        width: auto;
+        height: 100px;
+      }
+      .col-text{
+        text-align: left;
+      }
+    }
+  }
+}

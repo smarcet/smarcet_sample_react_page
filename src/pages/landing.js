@@ -9,11 +9,12 @@ class LandingPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state ={
-            openModal : false,
-            errors : [],
-            email: null,
+        this.state = {
+            openModal: false,
+            errors: [],
+            email: props.user_email,
         };
+
         this.onNextProduct = this.onNextProduct.bind(this);
         this.getTotalPrice = this.getTotalPrice.bind(this);
         this.getTotalRetailPrice = this.getTotalRetailPrice.bind(this);
@@ -21,6 +22,7 @@ class LandingPage extends React.Component {
         this.openModal = this.openModal.bind(this);
         this.onDoCheckout = this.onDoCheckout.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.props.resetSelection();
     }
 
     onNextProduct(ev, currentSlot, currentProduct) {
@@ -31,16 +33,16 @@ class LandingPage extends React.Component {
         console.log('componentDidUpdate');
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log('componentDidUpdate');
-        let { reloadSelection} = this.props;
+        let {reloadSelection} = this.props;
 
         //resetSelection();
         window.onpopstate = e => {
-           // back button pressed
-           // restore checkout state to wine selector
+            // back button pressed
+            // restore checkout state to wine selector
             console.log('componentDidUpdate::reload state');
-           reloadSelection();
+            reloadSelection();
         }
     }
 
@@ -57,7 +59,7 @@ class LandingPage extends React.Component {
         return `$${parseFloat(total).toFixed(2)}`;
     }
 
-    getTotalRetailPrice(){
+    getTotalRetailPrice() {
         let {user_wines} = this.props;
         let total = 0;
         for (let product of user_wines) {
@@ -68,26 +70,26 @@ class LandingPage extends React.Component {
 
     openModal(ev) {
         ev.preventDefault();
-        this.setState({ openModal: true });
+        this.setState({openModal: true});
         return false;
     }
 
-    onDoCheckout(ev){
+    onDoCheckout(ev) {
         ev.preventDefault();
-        let { history}  = this.props;
+        let {history} = this.props;
         let {errors, email} = this.state;
-        if(errors.hasOwnProperty('email')) return false;
+        if (errors.hasOwnProperty('email')) return false;
         this.props.doCheckout(email);
         history.push('/checkout');
         return false;
     }
 
-    onChange(ev){
+    onChange(ev) {
         let {value, id} = ev.target;
         let errors = {...this.state.errors};
-        delete(errors[id]);
+        delete (errors[id]);
 
-        if(!validateEmail(value)){
+        if (!validateEmail(value)) {
             errors[id] = `${id} is not valid.`;
         }
 
@@ -96,14 +98,14 @@ class LandingPage extends React.Component {
 
     hasErrors(field) {
         let {errors} = this.state;
-        if(field in errors) {
+        if (field in errors) {
             return errors[field];
         }
         return '';
     }
 
     closeModal() {
-        this.setState({ openModal: false });
+        this.setState({openModal: false});
     }
 
     render() {
@@ -147,12 +149,14 @@ class LandingPage extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <p className="retail-price">(Normal retail price: {this.getTotalRetailPrice()})</p>
+                                        <p className="retail-price">(Normal retail
+                                            price: {this.getTotalRetailPrice()})</p>
                                         <hr className="retail-price-hr"/>
                                     </div>
                                 </div>
                                 <div className="flex-center">
-                                    <a target="blank" className="call-2-action flex-center" onClick={this.openModal}>GO TO CHECKOUT</a>
+                                    <a target="blank" className="call-2-action flex-center" onClick={this.openModal}>GO
+                                        TO CHECKOUT</a>
                                 </div>
                                 <p className="money-back">Money Back Guarantee. Cancel Anytime.</p>
                             </div>
@@ -162,9 +166,11 @@ class LandingPage extends React.Component {
                 <div className="row checkout">
                     <div className="container">
                         <div className="flex-center">
-                            <a target="blank" className="call-2-action flex-center" onClick={this.openModal}>GO TO CHECKOUT</a>
+                            <a target="blank" className="call-2-action flex-center" onClick={this.openModal}>GO TO
+                                CHECKOUT</a>
                         </div>
-                        <p className="help">Questions? <a className="help-link" href="#">View our FAQ</a> or <a className="help-link" href="#">Chat with us.</a></p>
+                        <p className="help">Questions? <a className="help-link" href="#">View our FAQ</a> or <a
+                            className="help-link" href="#">Chat with us.</a></p>
                     </div>
                 </div>
                 <Popup open={this.state.openModal} onClose={this.closeModal}>
@@ -175,18 +181,19 @@ class LandingPage extends React.Component {
                         <p>Please enter your email</p>
                         <div className="row">
                             <div className="col-md-12 col-xs-12">
-                                    <input placeholder="Email Address" autoComplete="email"
-                                           type="email"
-                                           id="email" name="email" className="form-control"
-                                           onChange={this.onChange}
-                                    />
-                                    {this.hasErrors('email')!=='' &&
-                                        <p className="error-label">{this.hasErrors('email')}</p>
-                                    }
+                                <input placeholder="Email Address" autoComplete="email"
+                                       type="email"
+                                       id="email" name="email" className="form-control"
+                                       onChange={this.onChange}
+                                />
+                                {this.hasErrors('email') !== '' &&
+                                <p className="error-label">{this.hasErrors('email')}</p>
+                                }
                             </div>
                         </div>
                         <div className="flex-center">
-                            <a target="blank" className="call-2-action flex-center" onClick={this.onDoCheckout} href="#">CHECKOUT</a>
+                            <a target="blank" className="call-2-action flex-center" onClick={this.onDoCheckout}
+                               href="#">CHECKOUT</a>
                         </div>
                     </div>
                 </Popup>
@@ -195,9 +202,9 @@ class LandingPage extends React.Component {
     }
 }
 
-
 const mapStateToProps = ({baseState}) => ({
-    ...baseState
+    user_email: baseState.user_email,
+    user_wines: baseState.user_wines
 });
 
 export default connect(
